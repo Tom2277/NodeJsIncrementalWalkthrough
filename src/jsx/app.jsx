@@ -38,7 +38,7 @@ class App extends React.Component {
     return(<div>
       <Navbar currentUser={this.state.currentUser} handleLogin={this.login} handleLogout={this.logout}  />
       <div className="hello-message">
-        <h1>Hello Starter World!</h1>
+        <h1>Hello Custom World!</h1>
         <p> Tom Norian React Starter Kit </p>
       </div>
       <GenericComponent sectionTitle="sectionTitle from App Props" elements= {this.state.genericData} />
