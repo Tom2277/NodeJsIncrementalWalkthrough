@@ -1,13 +1,13 @@
 {
-  "name": "ReactWithSassQuickStart",
+  "name": "TinyAuthApp",
   "version": "1.0.0",
-  "description": "This is a starter kit to create a static ReactJS website with Sass, Bootstrap with Navbar",
+  "description": "A simple NodeJS project using Passport JS",
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack",
     "build-watch": "./node_modules/.bin/webpack -w"
   },
-  "author": "",
+  "author": "Tom Norian",
   "license": "ISC",
   "babel": {
     "presets": [

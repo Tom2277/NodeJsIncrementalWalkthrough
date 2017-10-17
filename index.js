@@ -1,29 +1,3 @@
-# An Extremely simple NodeJS app with Twitter Authentication
-
-First, download the zipfiles for my React Simple Starter Repo :
-
-See Blog post for directions and dependencies for that starter:
-
----
-
-Did you get all the dependencies installed and the serverless site running?
-
-Great.
-
-Now, lets create the most basic of NodeJS web servers on our machine.
-
-Check out this post by a developer named Adrian Mejia http://adrianmejia.com/blog/2016/08/24/Building-a-Node-js-static-file-server-files-over-HTTP-using-ES6/
-
-
-Create an index.js file
-
-```touch index.js```
-
-Insert this code of his (it is close to the standard http only convention but he handles the different mime types elegantly!)
-
-(This is not in the master branch of the repo)
-
-```
 const http = require('http');
 const url = require('url');
 const fs = require('fs');
@@ -36,6 +10,8 @@ http.createServer(function (req, res) {
   const parsedUrl = url.parse(req.url);
   // extract URL path
   let pathname = `.${parsedUrl.pathname}`;
+
+
   // maps file extention to MIME types
   const mimeType = {
     '.ico': 'image/x-icon',
@@ -60,10 +36,13 @@ http.createServer(function (req, res) {
       res.end(`File ${pathname} not found!`);
       return;
     }
+    // if (pathname === ('./')) { pathname = './public/index.html'}
+
     // if is a directory, then look for index.html
     if (fs.statSync(pathname).isDirectory()) {
       pathname += '/index.html';
     }
+
     // read file from file system
     fs.readFile(pathname, function(err, data){
       if(err){
@@ -80,18 +59,3 @@ http.createServer(function (req, res) {
   });
 }).listen(parseInt(port));
 console.log(`Server listening on port ${port}`);
-
-//see
-//http://adrianmejia.com/blog/2016/08/24/Building-a-Node-js-static-file-server-files-over-HTTP-using-ES6/
-
-```
-
-
-That will run fine.
-
-You should be able to boot with ```node index.js`` from your root directory and see your site locally on a web browser.
-
-Of course, we could do even better without a node app at all running
-
-
-MIT license  -  use and enjoy.
