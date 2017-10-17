@@ -1,0 +1,25 @@
+// include another .scss file from a sub-directory
+// @import './about/about.scss';
+
+body {
+    a {
+        color: magenta;
+    },
+    h1 {
+      color: blue;
+    }
+}
+
+.navbar-brand{
+  img{
+    width: 70px;
+  }
+}
+
+.hello-message{
+  padding: 0px 20px;
+}
+
+.generic-component{
+  background-color: white;
+}
