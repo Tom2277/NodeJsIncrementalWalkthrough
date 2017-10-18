@@ -109,7 +109,7 @@ But now, with the small bit of code below replacing the example above we're in b
 var express = require('express')
 var app = express()
 
-
+s
 app.use('/' , express.static('public'))
 
 app.get('/', function (req, res) {
@@ -124,7 +124,14 @@ app.listen(3000, function () {
 })
 ```
 
-This post isn't about the Express server or the imporant ideas of "middlewear", we are up and running again. The setup I have above routes requests to the root site to index.html in the public folder.
+This post isn't about the Express server or the important ideas of "middlewear", we are up and running again. The setup I have above routes requests to the root site to index.html in the public folder.  We haven't touched webpack or any view engine aspects.
+
+
+---
+
+Express will make it far more straightforward to keep this about quick authentication, not about writing requests. There will be enough of that already.
+
+npm install body-parser morgan mongoose --save
 
 
 

@@ -24,3 +24,16 @@ body {
 .generic-component{
   background-color: white;
 }
+
+.secret-component{
+  background-color:black;
+  color: orange;
+  
+  h5 {
+    color: orange;
+    
+  }
+  p {
+    color: brown;
+  }
+}

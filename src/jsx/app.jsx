@@ -4,12 +4,16 @@ const React     = require('react')
 const GenericComponent = require('./GenericComponent/generic-component.jsx')
 const GenericData = require('./GenericComponent/generic-data.js')
 const Navbar = require('./Navbar/navbar.jsx')
+const SecretServerInfo = require('./SecretServerInfo/secret-server-info.jsx')
+const SecretData = require('./SecretServerInfo/secret-data.js')
+
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       genericData: GenericData,
+      secretData: SecretData,
       currentUser: {}
     }
 
@@ -41,7 +45,15 @@ class App extends React.Component {
         <h1>Hello Custom World!</h1>
         <p> Tom Norian React Starter Kit </p>
       </div>
-      <GenericComponent sectionTitle="sectionTitle from App Props" elements= {this.state.genericData} />
+      <div>
+        <GenericComponent sectionTitle="sectionTitle from App Props" elements= {this.state.genericData} />
+      </div>
+      <div>
+        <SecretServerInfo sectionTitle="sectionTitle from App Props" elements= {this.state.secretData} />
+      </div>
+
+
+
     </div>)
   }
 
