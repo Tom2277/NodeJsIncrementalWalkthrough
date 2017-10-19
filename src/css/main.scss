@@ -37,3 +37,83 @@ body {
     color: brown;
   }
 }
+
+
+.modal-delete-trigger{
+  color: red;
+  position: relative;
+  display: inline-block;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modal-delete-form{
+  position:absolute;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 1em;
+  padding: 10px;
+  width: 200px;
+  transform: scale(0);
+  transition: all 525ms ease;
+}
+
+.modal-delete-trigger:hover .modal-delete-form{
+  z-index: 600;
+  display: inline-block;
+  position: absolute;
+  transform: scale(1);
+  bottom: .75em;
+}
+
+.secret-display{
+    margin: auto;
+    width: 60%;
+    background-color: black;
+    padding: 30px;
+    font-size: 1.5em;
+    color: orange;
+    .directions{
+      background-color: grey;
+      border-radius: 8px;
+      display: inline-block;
+      padding: 20px;
+    }
+    .details{
+      color: gray;
+      font-size: 1.2;
+    }
+    li {
+      padding-bottom: 5px;
+    }
+}
+
+.secret-form{
+  width: 35%;
+  margin:auto;
+  background-color: grey;
+  margin-top: 30px;
+  padding: 20px;
+  text-align: center;
+  label{
+    color: black;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  input{
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  button{
+    padding: 40px;
+    color: white;
+    background-color: red;
+    border-radius: 100%;
+    font-size: 2em;
+    width: 50%;
+    height: 200px;
+    cursor: pointer;
+  }
+}
