@@ -1,7 +1,7 @@
 {
   "name": "TinyAuthApp",
   "version": "1.0.0",
-  "description": "A simple NodeJS project using Passport JS",
+  "description": "Node JS Incremental walk through a project with and without Express and with and without Mongoose",
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack",

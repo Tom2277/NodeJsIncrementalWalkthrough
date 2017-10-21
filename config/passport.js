@@ -1,6 +1,4 @@
 var LocalStrategy   = require('passport-local').Strategy;
-
-// load up the user model
 var User            = require('../models/user');
 
 // expose this function to our app using module.exports
@@ -8,7 +6,6 @@ module.exports = function(passport) {
 
     
     // serialize and unserialize users in and out of session
-
     passport.serializeUser(function(user, done) {
         done(null, user.id);
     });
@@ -22,7 +19,6 @@ module.exports = function(passport) {
     
     // using a named strategy 'local-signup' instead of default 'local' 
     // to enable using external auth providers more simply in the future
-
     passport.use('local-signup', new LocalStrategy({
         //   use email to override default use of username
         usernameField : 'email',
@@ -70,5 +66,3 @@ module.exports = function(passport) {
     }));
 
 };
-
-// module exported above

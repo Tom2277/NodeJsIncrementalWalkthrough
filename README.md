@@ -1,6 +1,6 @@
 # An Incremental Guide through NodeJS
 
-Because more code examples are always good in my opinion given the changing syntax over-time.
+Because more code examples are always good, in my opinion, given the changing syntax over-time.
 
 Because it is sometimes tricky to see why scaffolded projects are the way they are and how they relate to simple tutorials.
 
@@ -9,7 +9,7 @@ The versions in this example are from October 2017
 - blog post link to follow
 
 
-### See beginner node project gradually incorporate additional modules
+### See a beginner node project gradually incorporate additional modules
 
 ### Node example without Express
 

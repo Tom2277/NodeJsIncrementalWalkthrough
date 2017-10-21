@@ -20,7 +20,6 @@ router.get('/', function (req, res, next) {
         layout: 'main',
         secretdata: result
       })
-      // res.send(products);
   });
 })
 router.post('/', function (req, res, next) {

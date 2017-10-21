@@ -8,11 +8,3 @@ var SillysecretSchema = Schema({
 });
 
 module.exports = mongoose.model('Sillysecret', SillysecretSchema);
-
-// Consider this
-// Virtual for this sillysecret instance URL
-// SillysecretsSchema
-// .virtual('url')
-// .get(function () {
-//   return '/sillysecrets/'+this._id;
-// });
