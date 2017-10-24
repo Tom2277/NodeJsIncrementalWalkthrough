@@ -8,18 +8,13 @@ const methodOverride = require('method-override');
 const validator     = require('express-validator');
 const exphbs        = require('express-handlebars');
 
-
-// we are moving the model routes to router/router.js in this commit
 const routes         = require('./routes/router');
-// const sillysecrets  = require('./routes/sillysecrets'); 
-// const users         = require('./routes/users');
 
 const app           = express();
 
 
     var mongoDB = process.env.MONGODB_URI || mongoURL;
-    mongoose.connect(mongoDB);
-    // mongoose.connect(mongoDB, { useMongoClient: true }); // we will remove an error message with this after running
+    mongoose.connect(mongoDB, { useMongoClient: true }); // we will remove an error message with this after running
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'MongoDB connection error:'));
     db.once('open', function(){ console.log('hi dee ho, MongoDB is connected')})
@@ -39,16 +34,12 @@ const app           = express();
     app.engine('.hbs', exphbs({extname: '.hbs'}));
     app.set('view engine', '.hbs');
    
-    // we are moving these to router/router.js in this commit
-    // app.use('/sillysecrets', sillysecrets);
-    // app.use('/users', users);
-
     app.use('/' , express.static('public'))
   
     app.get('/', function (req, res) {
       res.render('index',{})
     })
-    // we will leave the conversion from public files and reset of blanks index above although they could also be moved.
+
     // apply routes from router.js
     app.use('/', routes)
 
@@ -67,7 +58,7 @@ const app           = express();
 
       // render the error page
       res.status(err.status || 500);
-      res.render('error');
+      res.render('error'); // renders our hbs error view
     });
 
   
