@@ -1,26 +1,30 @@
 const express       = require('express')
 const mongoose      = require('mongoose');
-const mongoURL      = 'mongodb://localhost:27017/quickstartauth'
+const config        = require('./config/config.js')
+const mongoURL      = config.database
+const port          = config.port
 const bodyParser    = require('body-parser');
 const methodOverride = require('method-override');
 const validator     = require('express-validator');
 const exphbs        = require('express-handlebars');
-// const passport      = require('passport');
 
-const sillysecrets  = require('./routes/sillysecrets');
-const users         = require('./routes/users');
+
+// we are moving the model routes to router/router.js in this commit
+const routes         = require('./routes/router');
+// const sillysecrets  = require('./routes/sillysecrets'); 
+// const users         = require('./routes/users');
 
 const app           = express();
 
 
     var mongoDB = process.env.MONGODB_URI || mongoURL;
     mongoose.connect(mongoDB);
+    // mongoose.connect(mongoDB, { useMongoClient: true }); // we will remove an error message with this after running
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'MongoDB connection error:'));
     db.once('open', function(){ console.log('hi dee ho, MongoDB is connected')})
 
-    // require('./config/passport')(passport); // pass passport for configuration
-
+    // express middleware for all routes
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(methodOverride(function (req, res) {
@@ -35,15 +39,18 @@ const app           = express();
     app.engine('.hbs', exphbs({extname: '.hbs'}));
     app.set('view engine', '.hbs');
    
-    
-    app.use('/sillysecrets', sillysecrets);
-    app.use('/users', users);
+    // we are moving these to router/router.js in this commit
+    // app.use('/sillysecrets', sillysecrets);
+    // app.use('/users', users);
 
     app.use('/' , express.static('public'))
   
     app.get('/', function (req, res) {
       res.render('index',{})
     })
+    // we will leave the conversion from public files and reset of blanks index above although they could also be moved.
+    // apply routes from router.js
+    app.use('/', routes)
 
     // catch 404 and forward to error handler
     app.use(function(req, res, next) {
@@ -64,7 +71,7 @@ const app           = express();
     });
 
   
-    app.listen(3000, function () {
+    app.listen( port , function () {
       console.log('QuickStartAuth app listening on port 3000!')
     })
 
