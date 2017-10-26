@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt');
 
+// NOTE We are not using this model in the finished state of the module
+// See posts in future blog post with a different approach that I decided on
+
 var userSchema = mongoose.Schema({
 
       local  : {

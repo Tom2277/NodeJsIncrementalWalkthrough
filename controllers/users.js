@@ -4,7 +4,7 @@ exports.getLoginForm = function (req, res, next) {
   console.log("retrieving login form")
   res.render('login-form',{
     logintitle: "NodeJS-Incremental User Creation and Login Route",
-    layout: 'loginlayout',
+    layout: 'main',
   })
 }
 

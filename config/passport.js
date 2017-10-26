@@ -1,3 +1,9 @@
+// Note  I am not using these approaches at the end of the NodeIncremental walkthrough
+
+// See future blog post for approach I settled on!
+
+
+
 var LocalStrategy   = require('passport-local').Strategy;
 var User            = require('../models/user');
 

@@ -1,0 +1,30 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" style="padding-top: 8px;"><img alt="ReactBrand" src="images/handlebars.png" /></a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/sillysecrets" >Secret Form</a></li>
+        <li><a href="/users" >Sign-up</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" >
+        {{#if username}}
+          <div>
+            <span class="navbar-brand">Username {{username}}</span>
+            <a href='users/logout'><span class="navbar-brand btn" >Logout</span></a>
+          </div>
+        {{else}}
+            <a><span class="navbar-brand btn" >Login</span></a>
+        {{/if }}
+      
+      </ul>
+    </div>
+  </div>
+</nav>

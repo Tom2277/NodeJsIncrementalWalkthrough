@@ -12,9 +12,11 @@ const routes         = require('./routes/router');
 
 const app           = express();
 
+    app.disable('x-powered-by') // simple thing we should do - even if assuming express might be common
+    // we will try and use and include the 'helmet' module before any deployment as low hanging fruit first step security.
 
     var mongoDB = process.env.MONGODB_URI || mongoURL;
-    mongoose.connect(mongoDB, { useMongoClient: true }); // we will remove an error message with this after running
+    mongoose.connect(mongoDB, { useMongoClient: true });
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'MongoDB connection error:'));
     db.once('open', function(){ console.log('hi dee ho, MongoDB is connected')})
